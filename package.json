@@ -23,5 +23,6 @@
     "json": "^11.0.0",
     "mongoose": "^7.2.0",
     "nodemon": "^2.0.12"
-  }
+  },
+  "devDependencies": {}
 }

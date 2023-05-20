@@ -8,7 +8,7 @@ const {
     updateThoughtById,
     createReaction,
     deleteReaction,
-} = require('../../controllers/thought-controller');
+} = require('../../../controllers/thought-controller');
 
 // routes for GET and POST all Thoughts
 router.route('/').get(getAllThoughts).post(createThought);

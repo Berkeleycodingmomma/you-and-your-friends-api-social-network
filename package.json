@@ -1,0 +1,27 @@
+{
+  "name": "you-and-your-friends-api-social-network",
+  "version": "1.0.0",
+  "description": "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [Open Source Initiative Link](https://opensource.org/licenses/MIT)",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Berkeleycodingmomma/you-and-your-friends-api-social-network.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Berkeleycodingmomma/you-and-your-friends-api-social-network/issues"
+  },
+  "homepage": "https://github.com/Berkeleycodingmomma/you-and-your-friends-api-social-network#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "json": "^11.0.0",
+    "mongoose": "^7.2.0",
+    "nodemon": "^2.0.12"
+  }
+}

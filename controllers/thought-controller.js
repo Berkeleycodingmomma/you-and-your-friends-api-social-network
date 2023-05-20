@@ -1,7 +1,7 @@
 const { Thought, User, Reaction } = require('../models');
 const {Types} = require('mongoose');
 
-// Define the ThoughtController object, which contains methods for handling various API requests related to thoughts
+
 const ThoughtController = {
   async getAllThoughts(req, res) {
     try {
@@ -11,4 +11,31 @@ const ThoughtController = {
       res.status(500).json(err);
     }
   },
+  async createReaction(req, res) {
+    try {
+      const thought = await Thought.findOneAndUpdate(
+          {_id:req.params.thoughtId},
+          {$addToSet: {reactions: req.body}},
+          {runValidators: true, new: true}
+      );
+      thought ? res.json(thought) : res.status(404).json({message: notFound});
+  } catch (e) {
+      res.status(500).json(e);
+  }
+},
+async deleteReaction(req, res) {
+    try {
+      const thought = await Thought.findOneAndUpdate(
+          {_id: req.params.thoughtId},
+          {$pull: {reactions: {reactionId: req.params.reactionId}}},
+          {runValidators: true, new: true}
+      );
+
+      thought ? res.json(thought) : res.status(404).json({message: notFound});
+  } catch (e) {
+      res.status(500).json(e);
+  }
+},
+
 };
+module.exports = ThoughtController;

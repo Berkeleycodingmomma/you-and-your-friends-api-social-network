@@ -98,12 +98,11 @@ Each endpoint must include the necessary data in the request body or URL paramet
 [Click Here to Watch]()
 
 ## Screenshots:
-### Figure 1. Screenshot.
-```sh
+### Figure 1. Screeshot of project
 
 ![Screen Shot 2023-05-23 at 5 07 39 PM](https://github.com/Berkeleycodingmomma/you-and-your-friends-api-social-network/assets/127444682/10b5d1a3-7a1e-40cc-b54e-a2d1009997df)
 
-```
+#
 
 ## Installation Process:
 1. Obtain the repository by either cloning it from GitHub or downloading the zip folder.

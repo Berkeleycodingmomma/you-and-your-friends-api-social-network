@@ -7,20 +7,22 @@ const UserController = {
       .then(userData => res.json(userData))
       .catch(err => res.status(500).json(err));
   },
-  // 2. Getting one user by ID
+
+  // 2. Get one user by ID
   getUserById(req, res) {
     User.findById(req.params.userId)
       .then(userData => res.json(userData))
       .catch(err => res.status(500).json(err));
   },
   
-  // 3. Creating a user
+  // 3. Create a user
   createUser(req, res) {
     User.create(req.body)
-      .then(userData => res.json(userData))
+      .then(user => res.json(user))
       .catch(err => res.status(500).json(err));
   },
-  // 4. Updating user by ID
+
+  // 4. Update user by ID
   updateUserById(req, res) {
     User.findOneAndUpdate(req.params.id, req.body, { new: true })
       .then(userData => {
@@ -32,7 +34,7 @@ const UserController = {
       .catch(err => res.status(500).json(err));
   },
 
-   //5. Delete user
+  // 5. Delete user
   deleteUserById(req, res) {
     User.findOneAndDelete(req.params.id)
       .then(userData => {
@@ -86,4 +88,6 @@ const UserController = {
   },
 };
 
+
+// Export UserController
 module.exports = UserController;

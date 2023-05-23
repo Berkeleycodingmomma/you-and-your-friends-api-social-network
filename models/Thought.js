@@ -7,7 +7,7 @@ const thoughtSchema = new Schema(
             type: String,
             required: true,
             minlength: 1,
-            maxlenght: 280,
+            maxLength: 280,
         },
         createdAt:{
             type: Date,
@@ -23,7 +23,7 @@ const thoughtSchema = new Schema(
     {
         toJSON: {
             getters: true,
-            virtuals: true,
+            virtual: true,
         },
         id: false,
     },

@@ -1,4 +1,4 @@
-const { Thought, User, Reaction } = require('../models');
+const { Thought, User } = require('../models');
 const {Types} = require('mongoose');
 
 // Define the ThoughtController object, which contains methods for handling various API requests related to thoughts
@@ -26,14 +26,25 @@ const ThoughtController = {
     }
   },
   // Handler for the "create thought" API endpoint
-  async createThought(req, res) {
-    try {
-      const thought = await Thought.create(req.body);
-      res.status(201).json(thought);
-    } catch (err) {
-      res.status(500).json(err);
-    }
-  },
+   createThought(req, res) {
+    Thought.create(req.body)
+    .then ((thought) => {
+      return User.findOneAndUpdate(
+        {username: req.body.username},
+        {$push: {thought: thought._id}},
+        {new: true}
+      );
+        })
+        .then((user) => {
+          if(!user){
+            return res.status(404).json({message: "No user with this username"})
+          }
+        res.status(200).json(user);
+        })
+        .catch ((err) => {
+          return res.status(500).json(err);
+        });
+      },
   
   // Handler for the "delete thought" API endpoint
   async deleteThought(req,res) {
@@ -69,7 +80,7 @@ const ThoughtController = {
             {$addToSet: {reactions: req.body}},
             {runValidators: true, new: true}
         );
-        thought ? res.json(thought) : res.status(404).json({message: notFound});
+        thought ? res.json(thought) : res.status(404).json({message: "Not Found"});
     } catch (e) {
         res.status(500).json(e);
     }
@@ -77,19 +88,22 @@ const ThoughtController = {
 
 // Handler for the "delete reaction" API endpoint
   async deleteReaction(req, res) {
-      try {
-        const thought = await Thought.findOneAndUpdate(
+     Thought.findOneAndUpdate(
             {_id: req.params.thoughtId},
             {$pull: {reactions: {reactionId: req.params.reactionId}}},
-            {runValidators: true, new: true}
-        );
+            {runValidators: true}
+        )
+        .then((thought) => 
+        !thought
+        ? res.status(404).json({message: "Not found"})
+        : res.status(200).json({message: "Reaction deleted"})
+         )
+         .catch((err) => 
+        res.status(500).json(err));
+    },
+  };
 
-        thought ? res.json(thought) : res.status(404).json({message: notFound});
-    } catch (e) {
-        res.status(500).json(e);
-    }
-  },
 
-};
+
 
 module.exports = ThoughtController;

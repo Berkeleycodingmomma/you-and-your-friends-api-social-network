@@ -3,7 +3,7 @@ const express =  require('express');
 const db = require('./config/connection');
 const routes = require('./routes');
 // Setting up environment variables
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3002;
 const app = express();
 // Using middleware to parse incoming data
 app.use(express.urlencoded({ extended: true }));

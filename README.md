@@ -116,6 +116,120 @@ Each endpoint must include the necessary data in the request body or URL paramet
 - License Badge: [Apache 2.0](http://www.apache.org/licenses/LICENSE-2.0))
 - Visual Studio Code: [Website](https://code.visualstudio.com/)
 
+## Code Snippets 
+#
+
+```sh
+
+const {connect,connection} = require('mongoose');
+
+const connectionString = process.env.MONGODB_URI || 'mongodb://localhost:27017/friendsDB'
+
+connect(connectionString, {
+    useNewUrlParser: true, 
+    useUnifiedTopology: true,
+    });
+
+module.exports = connection;
+
+
+# ABOVE: This code establishes a connection to a MongoDB database using Mongoose, using a provided connection string or a default local connection, and exports the connection object for further use.
+
+```
+#
+
+
+```sh
+
+ addFriend(req, res) {
+    User.findOneAndUpdate(
+      { _id: req.params.userId },
+      { $addToSet: { friends: req.body.friendId || req.params.friendId} },
+      { new: true }
+    )
+      .then(userData => {
+        if (!userData) {
+          return res.status(404).json({ message: 'User not found' });
+        }
+        res.json(userData);
+      })
+      .catch(err => res.status(500).json(err));
+  },
+  
+# This code adds a friend to a user's friends list in the database, based on the provided user ID and friend ID, and returns the updated user data, handling error cases appropriately.
+
+```
+#
+
+
+```sh
+
+const { Schema, Types } = require('mongoose');
+const { schema } = require('./User');
+
+const reactionSchema = new Schema(
+  {
+    reactionId: {
+      type: Schema.Types.ObjectId,
+      default: () => new Types.ObjectId(),
+    },
+    reactionBody: {
+        type: String,
+        required: true,
+        maxLength: 280,
+      },
+      username: {
+        type: String,
+        required: true,
+      },
+      createdAt: {
+        type: Date,
+        default: Date.now,
+        get: timestamp => new Date(timestamp).toLocaleDateString()
+      },
+    },
+    {
+      toJSON: {
+        getters: true,
+      },
+      id: false,
+}
+);
+module.exports = reactionSchema;
+
+# This code defines a Mongoose schema for a reaction with specific fields, data types, validation rules, default values, serialization options, and exports it for use in other modules.
+
+```
+#
+
+
+```sh
+
+const router = require('express').Router();
+const {
+    getAllThoughts,
+    getThoughtsById,
+    createThought,
+    deleteThought,
+    updateThoughtById,
+    createReaction,
+    deleteReaction,
+} = require('../../controllers/thought-controller');
+
+router.route('/').get(getAllThoughts).post(createThought);
+
+router.route('/:thoughtId').get(getThoughtsById).put(updateThoughtById).delete(deleteThought);
+
+router.route('/:thoughtId/reactions').post(createReaction);
+
+
+module.exports = router;
+
+# This code sets up an Express router with various routes for handling CRUD operations related to thoughts and reactions, using corresponding controller functions, and exports the router for use in other parts of the application.
+
+```
+#
+
 ## What I Learned:
 1. Developed a RESTful API using Node.js and Mongoose.
 2. Employed a NoSQL database to efficiently manage unstructured data.

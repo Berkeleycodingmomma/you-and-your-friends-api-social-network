@@ -13,6 +13,7 @@ This is an API built on Node.js that enables users to perform CRUD operations on
 - [Usage Information](#Usage-Information)
 - [Installation Process](#Installation-Process)
 - [Built With](#Built-With)
+- [Code Snippets](#Code-Snippets)
 - [What I Learned](#What-I-Learned)
 - [License](#License)
 - [Author](#Author)

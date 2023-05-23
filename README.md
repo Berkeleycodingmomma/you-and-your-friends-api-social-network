@@ -136,7 +136,7 @@ module.exports = connection;
 
 
 # ABOVE: This code establishes a connection to a MongoDB database using Mongoose, using a provided connection 
-string or a default local connection, and exports the connection object for further use.
+# string or a default local connection, and exports the connection object for further use.
 
 ```
 #
@@ -160,7 +160,7 @@ string or a default local connection, and exports the connection object for furt
   },
   
 # This code adds a friend to a user's friends list in the database, based on the provided user ID and friend ID,
-and returns the updated user data, handling error cases appropriately.
+# and returns the updated user data, handling error cases appropriately.
 
 ```
 #
@@ -202,7 +202,7 @@ const reactionSchema = new Schema(
 module.exports = reactionSchema;
 
 # This code defines a Mongoose schema for a reaction with specific fields, data types, validation rules, 
-default values, serialization options, and exports it for use in other modules.
+# default values, serialization options, and exports it for use in other modules.
 
 ```
 #
@@ -231,8 +231,8 @@ router.route('/:thoughtId/reactions').post(createReaction);
 module.exports = router;
 
 # This code sets up an Express router with various routes for handling CRUD operations related to thoughts
-and reactions, using corresponding controller functions, and exports the router for use in other parts of 
-the application.
+# and reactions, using corresponding controller functions, and exports the router for use in other parts of 
+# the application.
 
 ```
 #
@@ -265,6 +265,7 @@ compliance with the License.
 You may obtain a copy of the License at
 
    http://www.apache.org/licenses/LICENSE-2.0
+
 Unless required by applicable law or agreed to in writing, software distributed under the License is 
 distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and limitations under the License.
@@ -280,8 +281,8 @@ Find me on Linkedin at [AmandaGray](https://www.linkedin.com/in/amanda-gray-121a
 
 -UC Berkeley Extension, Coding Bootcamp
 
--Shout out to Jerome Chenette and all the TA's 
+-Shout out to my Instructor Jerome Chenette and all his TA's: Manuel Nunes, Kyle Vance, and James Harding
 
 -Google Search! Seriously, thank you google search!
 #
-© 2023 [AmandaGray](https://github.com/Berkeleycodingmomma)!. Confidential and Proprietary. All Rights Reserved.
+© 2023 [AmandaGray](https://github.com/Berkeleycodingmomma)! Confidential and Proprietary. All Rights Reserved.

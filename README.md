@@ -89,14 +89,11 @@ Each endpoint must include the necessary data in the request body or URL paramet
 13. POST /api/users/:userId/friends/:friendId - add a friend to a user's friend list
 14. DELETE /api/users/:userId/friends/:friendId - remove a friend from a user's friend list
 
-## Deployed Application Link:
-[Deployed Application Link:]()
-
 ## GitHub Repository:
-[GitHub Repository:]()
+[GitHub Repository:](https://github.com/Berkeleycodingmomma/you-and-your-friends-api-social-network)
 
 ## YouTube Walkthrough Video:
-[Click Here to Watch]()
+[Click Here to Watch](https://youtu.be/xsS7M2-5MhM)
 
 ## Screenshots:
 ### Figure 1. Screeshot of project

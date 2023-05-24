@@ -56,12 +56,6 @@ THEN I am able to successfully create and delete reactions to thoughts and add a
 friends to a user’s friend list
 
 ```
-#
-## GIF:
-### Figure 1. GIF.
-#
-#### The following animation demonstrates the application functionality:
-![]()
 
 ## Usage Instructions:
 

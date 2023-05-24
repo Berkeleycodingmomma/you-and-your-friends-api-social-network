@@ -136,8 +136,9 @@ connect(connectionString, {
 module.exports = connection;
 
 
-# ABOVE: This code establishes a connection to a MongoDB database using Mongoose, using a provided connection 
-# string or a default local connection, and exports the connection object for further use.
+# ABOVE: This code establishes a connection to a MongoDB database using Mongoose, using 
+# a provided connection string or a default local connection, and exports the connection
+# object for further use.
 
 ```
 #
@@ -160,8 +161,8 @@ module.exports = connection;
       .catch(err => res.status(500).json(err));
   },
   
-# This code adds a friend to a user's friends list in the database, based on the provided user ID and friend ID,
-# and returns the updated user data, handling error cases appropriately.
+# This code adds a friend to a user's friends list in the database, based on the provided 
+# user ID and friend ID, and returns the updated user data, handling error cases appropriately.
 
 ```
 #
@@ -202,8 +203,9 @@ const reactionSchema = new Schema(
 );
 module.exports = reactionSchema;
 
-# This code defines a Mongoose schema for a reaction with specific fields, data types, validation rules, 
-# default values, serialization options, and exports it for use in other modules.
+# This code defines a Mongoose schema for a reaction with specific fields, data types,
+# validation rules, default values, serialization options, and exports it for use in 
+# other modules.
 
 ```
 #
@@ -231,9 +233,9 @@ router.route('/:thoughtId/reactions').post(createReaction);
 
 module.exports = router;
 
-# This code sets up an Express router with various routes for handling CRUD operations related to thoughts
-# and reactions, using corresponding controller functions, and exports the router for use in other parts of 
-# the application.
+# This code sets up an Express router with various routes for handling CRUD operations 
+# related to thoughts and reactions, using corresponding controller functions, and 
+# exports the router for use in other parts of the application.
 
 ```
 #
@@ -260,16 +262,17 @@ module.exports = router;
 #
 ```md
 
-Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in
-compliance with the License.
+Licensed under the Apache License, Version 2.0 (the "License"); 
+you may not use this file except incompliance with the License.
 
 You may obtain a copy of the License at
 
    http://www.apache.org/licenses/LICENSE-2.0
 
-Unless required by applicable law or agreed to in writing, software distributed under the License is 
-distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and limitations under the License.
+Unless required by applicable law or agreed to in writing, software distributed under 
+the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF 
+ANY KIND, either express or implied. See the License for the specific language 
+governing permissions and limitations under the License.
 
 ```
 #
